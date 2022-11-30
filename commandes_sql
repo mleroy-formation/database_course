@@ -96,3 +96,37 @@ DROP TABLE `nom_table`
 ## Supprimer une base de données
 
 DROP DATABASE nom_db;
+
+
+## Isolez un objet unique
+SELECT * FROM nom_table WHERE id = 4;
+
+WHERE ne se limite pas uniquement à l'id
+SELECT * FROM nom_table WHERE email = "toto@gmail.com"
+
+
+## Isolez plusieurs objets qui répondent à un critère de comparaison
+
+SELECT * FROM nom_table WHERE nom_column < 50;
+
+
+## Isolez plusieurs objets qui répondent à un critère de comparaison sur du texte
+SELECT * FROM nom_table WHERE column LIKE "%texte";
+
+%texte => Texte se terminant par texte
+texte% => Texte qui commence par texte
+%texte% => Texte qui contenant "texte" au début OU à la fin
+
+
+## Ordonner les objets récupérés pour chaque requête
+SELECT * from nom_table ORDER BY nom_column ASC
+
+ASC => Par ordre croissant
+DESC => Par ordre décroissant
+
+
+## Vérifier plusieurs conditions/comparaison
+SELECT *
+FROM nom_table
+WHERE (nom_column < 50) AND (nom_column > 10)
+ORDER BY nom_column DESC;
