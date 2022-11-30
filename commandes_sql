@@ -1,0 +1,98 @@
+## Création de base de données
+
+CREATE DATABASE nom_db;
+
+
+## Utilisez une base de données avec USE et SHOW
+
+USE nom_db;
+
+SHOW nom_db;
+
+
+## Création des tables
+
+CREATE TABLE nom_table (
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+lastname VARCHAR(100),
+email VARCHAR(255) NOT NULL UNIQUE
+);
+
+
+## Vérification de l'intégrité de la table avec SHOW tables et SHOW columns
+
+SHOW tables;
+
+SHOW columns FROM nom_table;
+
+
+## Chargez une base de données (sauvegarde)
+
+mysql -u identifiant -p mot_de_passe < nom_du_fichier.sql
+
+
+## Importez une base de données
+
+mysql -u nom_utilisateur -p mot_de_passe > chemin/nom_du_fichier.sql
+
+
+## Inserer une ligne de données
+
+INSERT INTO `nom_table` (`column1`, `column2`, `column3`)
+VALUES ('Valeur1', 'Valeur2', 'Valeur3);
+
+Pour plusieurs :
+INSERT INTO `nom_table` (`column1`, `column2`, `column3`)
+VALUES 
+('Valeur1', 'Valeur2', 'Valeur3),
+('Valeur1', 'Valeur2', 'Valeur3),
+('Valeur1', 'Valeur2', 'Valeur3),
+('Valeur1', 'Valeur2', 'Valeur3);
+
+Attention : On insère la data dans l'ordre des columns présentent dans la DB, IDEM pour les valeurs
+
+Nom de table ou de colonne => backtick (``)
+valeur de type TEXT ou VARCHAR => Guillemets simple ou double ("")
+Valeur de type BOOLEAN, INTEGER, FLOAT => Pas de guillemets
+
+
+## Lecture des objets dans les Database avec toute les columns
+
+SELECT * FROM nom_table;
+Le sélecteur "*" sélectionne toute les colonnes
+
+## Lecture des objets dans la Database avec des colonnes spécifiques
+
+SELECT `column1`, `column2, `column3` FROM nom_table;
+
+
+## Mettre à jour un objet
+
+UPDATE `nom_table` SET `nom_column` = 'valeur' WHERE `id`='valeur';
+
+
+## MAJ tous les objets
+
+UPDATE `nom_table` SET column = 'Valeur';
+
+
+## Supprimer un objet
+
+DELETE FROM `nom_table` WHERE `id` = 'valeur'
+
+
+
+## Supprimer tous les objets d'une table
+
+DELETE FROM nom_table;
+
+
+## Supprimer une table 
+
+DROP TABLE `nom_table`
+
+
+## Supprimer une base de données
+
+DROP DATABASE nom_db;
