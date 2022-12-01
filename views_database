@@ -1,0 +1,14 @@
+## Sauvegarder les requêtes
+
+Une view nous permet de sauvegarder une requête qu'on utilise souvent pour pouvoir la réutiliser par son nom au lieu de réécrire la requête complète
+
+CREATE VIEW utilisateurs_gmail_vw AS 
+    (   SELECT * 
+        FROM utilisateur 
+        WHERE email LIKE "%gmail.com"
+    );
+    
+
+## Utiliser une vue
+
+SELECT * FROM utilisateurs_gmail_vw;
